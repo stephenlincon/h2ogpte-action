@@ -73,6 +73,14 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git tag "$TAG"
           git push origin "$TAG"
+      
+      - name: Update Latest Tag
+        if: steps.check_remote_tag.outputs.exists == 'false' && github.event.inputs.dry_run != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -f latest
+          git push -f origin latest
 
       - name: Create GitHub Release
         if: steps.check_remote_tag.outputs.exists == 'false' && github.event.inputs.dry_run != 'true'
