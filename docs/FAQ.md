@@ -87,4 +87,27 @@ Yes, if you run your own GitHub MCP server and point the action at it.
 
 The built-in remote GitHub MCP does not support GHES, and h2oGPTe does not support Docker MCP commands, so the recommended approach is to host a **standalone** [GitHub MCP server](https://github.com/github/github-mcp-server) (e.g. build from source), expose it at a URL reachable by your cluster (e.g. internal URL or tunnel), then set the action's **`github_mcp_url`** input to the full URL of your MCP server. See [Configuring MCP for GHES](CONFIGURATION.md#configuring-mcp-for-github-enterprise-server-ghes) for a high-level guide.
 
+## 📌 How do I always use the latest version of the action?
+
+### Using the `latest` Tag
+
+You can reference the `latest` tag to automatically use the most recent stable release:
+
+```yaml
+- name: h2oGPTe Agent Assistant
+  uses: h2oai/h2ogpte-action@latest # Always uses the latest release
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    h2ogpte_api_key: ${{ secrets.H2OGPTE_API_KEY }}
+    # ... other configuration
+```
+
+### Other Tag Options
+
+| Reference | Description                           |
+| --------- | ------------------------------------- |
+| `@latest` | Always uses the newest release        |
+| `@v0.2.4` | Pins to a specific version            |
+| `@main`   | Uses the latest code from main branch |
+
 _If you have additional questions or need help with your specific setup, please open an issue in this repository._
