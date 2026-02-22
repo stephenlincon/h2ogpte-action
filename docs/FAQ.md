@@ -104,10 +104,24 @@ You can reference the `latest` tag to automatically use the most recent stable r
 
 ### Other Tag Options
 
-| Reference | Description                           |
-| --------- | ------------------------------------- |
-| `@latest` | Always uses the newest release        |
-| `@v0.2.4` | Pins to a specific version            |
-| `@main`   | Uses the latest code from main branch |
+| Reference | Description                                                                          |
+| --------- | ------------------------------------------------------------------------------------ |
+| `@latest` | Always uses the newest release                                                       |
+| `@v0.2.4` | Pins to a specific version                                                           |
+| `@main`   | Uses the latest code from main branch <br>(⚠️ potentially unstable, not recommended) |
+
+### Choosing the Right Version
+
+**Use `@latest` if:**
+
+- You have a compatible h2oGPTe version (see [Requirements](../README.md#-requirements))
+- You want the newest features and bug fixes automatically
+- You're testing or developing
+
+**Pin to a specific version (e.g., `@v0.2.4`) if:**
+
+- You need stability and predictable behavior
+- Your h2oGPTe version requires a specific action version (check compatibility requirements)
+- You're running production workflows
 
 _If you have additional questions or need help with your specific setup, please open an issue in this repository._
