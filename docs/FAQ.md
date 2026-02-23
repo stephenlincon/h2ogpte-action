@@ -87,7 +87,7 @@ Yes, if you run your own GitHub MCP server and point the action at it.
 
 The built-in remote GitHub MCP does not support GHES, and h2oGPTe does not support Docker MCP commands, so the recommended approach is to host a **standalone** [GitHub MCP server](https://github.com/github/github-mcp-server) (e.g. build from source), expose it at a URL reachable by your cluster (e.g. internal URL or tunnel), then set the action's **`github_mcp_url`** input to the full URL of your MCP server. See [Configuring MCP for GHES](CONFIGURATION.md#configuring-mcp-for-github-enterprise-server-ghes) for a high-level guide.
 
-## 📌 How do I always use the latest version of the action?
+## 📌 How do I choose which version of the action to use?
 
 ### Using the `latest` Tag
 
@@ -104,24 +104,27 @@ You can reference the `latest` tag to automatically use the most recent stable r
 
 ### Other Tag Options
 
-| Reference | Description                                                                          |
-| --------- | ------------------------------------------------------------------------------------ |
-| `@latest` | Always uses the newest release                                                       |
-| `@v0.2.4` | Pins to a specific version                                                           |
-| `@main`   | Uses the latest code from main branch <br>(⚠️ potentially unstable, not recommended) |
+| Reference | Description                           |
+| --------- | ------------------------------------- |
+| `@latest` | Always uses the newest release        |
+| `@v0.2.4` | Pins to a specific version            |
+| `@main`   | Uses the latest code from main branch |
 
 ### Choosing the Right Version
 
 **Use `@latest` if:**
 
-- You have a compatible h2oGPTe version (see [Requirements](../README.md#-requirements))
+- Your version of h2oGPTe is always up-to-date
 - You want the newest features and bug fixes automatically
-- You're testing or developing
 
 **Pin to a specific version (e.g., `@v0.2.4`) if:**
 
 - You need stability and predictable behavior
 - Your h2oGPTe version requires a specific action version (check compatibility requirements)
-- You're running production workflows
+
+**Use `@main` if:**
+
+- You're testing or developing unreleased changes
+- You accept it may be **unstable** ⚠️ (not recommended for production)
 
 _If you have additional questions or need help with your specific setup, please open an issue in this repository._

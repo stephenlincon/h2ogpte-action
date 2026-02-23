@@ -65,6 +65,7 @@ jobs:
           } >> $GITHUB_STEP_SUMMARY
 
       - name: Create and push tag
+        id: create_tag
         if: steps.check_remote_tag.outputs.exists == 'false' && github.event.inputs.dry_run != 'true'
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
@@ -75,7 +76,7 @@ jobs:
           git push origin "$TAG"
 
       - name: Update Latest Tag
-        if: steps.check_remote_tag.outputs.exists == 'false' && github.event.inputs.dry_run != 'true'
+        if: steps.create_tag.outcome == 'success'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
