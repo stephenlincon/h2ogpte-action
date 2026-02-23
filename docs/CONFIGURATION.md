@@ -117,4 +117,4 @@ Currently, only **h2ogpte version >= 1.6.31, <= 1.6.47** is supported. By defaul
 
 See `action.yml` for additional configuration details.
 
-If you need a specific **h2ogpte action version** for compatibility, pin to that version (e.g., `@v0.2.4`). To always use the latest compatible version, use `@latest`. See [FAQ](FAQ.md#-how-do-i-always-use-the-latest-version-of-the-action) for details.
+If you need a specific **h2ogpte action version** for compatibility, pin to that version (e.g., `@v0.2.4`). To always use the latest compatible version, use `@latest`. See [FAQ](FAQ.md#-how-do-i-choose-which-version-of-the-action-to-use) for details.
